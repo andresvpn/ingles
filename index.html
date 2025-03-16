@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presente Simple en Inglés</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .panel {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      border-radius: 20px;
+      border: 2px solid #007bff;
+    }
+
+    .word {
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 8px;
+      margin: 5px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .sentence-box {
+      min-height: 50px;
+      border: 2px dashed #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .correct {
+      border-color: green;
+      color: green;
+    }
+
+    .incorrect {
+      border-color: red;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="bg-primary text-white text-center py-4">
+    <h1>Michael, Esteban, Sty, Jerson</h1>
+  </header>
+
+  <main class="container my-5">
+
+    <!-- Panel: ¿Qué es el presente simple? -->
+    <section class="panel">
+      <h2>¿Qué es el Presente Simple?</h2>
+      <p>El <span class="highlight">Presente Simple</span> es un tiempo verbal que se usa para hablar de hábitos, rutinas, verdades universales y situaciones permanentes.</p>
+    </section>
+
+    <!-- Panel: Estructura del presente simple -->
+    <section class="panel">
+      <h2>Estructura del Presente Simple</h2>
+      <ul>
+        <li><strong>Oración afirmativa:</strong> <span class="highlight">Sujeto + verbo en presente (+s o +es en tercera persona).</span></li>
+        <p>Ejemplo: <i>She plays the guitar.</i></p>
+
+        <li><strong>Oración negativa:</strong> <span class="highlight">Sujeto + do/does + not + verbo en infinitivo.</span></li>
+        <p>Ejemplo: <i>They do not like coffee.</i></p>
+
+        <li><strong>Oración interrogativa:</strong> <span class="highlight">Do/Does + sujeto + verbo en infinitivo?</span></li>
+        <p>Ejemplo: <i>Do you speak English?</i></p>
+      </ul>
+    </section>
+
+    <!-- Panel: Usos del presente simple -->
+    <section class="panel">
+      <h2>Usos del Presente Simple</h2>
+      <ul>
+        <li>Hábitos y rutinas: <span class="highlight">I go to work every day.</span></li>
+        <li>Verdades universales: <span class="highlight">Water boils at 100°C.</span></li>
+        <li>Situaciones permanentes: <span class="highlight">She lives in New York.</span></li>
+        <li>Horarios fijos: <span class="highlight">The bus leaves at 8:00 AM.</span></li>
+      </ul>
+    </section>
+
+    <!-- Panel: Video explicativo -->
+    <section class="panel text-center">
+      <h2>Video Explicativo</h2>
+      <iframe class="w-100" height="450" src="https://www.youtube.com/embed/wtTAdfyejH0" allowfullscreen></iframe>
+    </section>
+
+    <!-- Panel: Juego interactivo -->
+    <section class="panel">
+      <h2>📝 Juego interactivo: Completa las frases</h2>
+      <p>Completa las oraciones con la forma correcta del <span class="highlight">Presente Simple</span>.</p>
+
+      <form id="gameForm">
+        <label>1. She ______ (play) the piano every day.</label>
+        <input type="text" id="q1" class="form-control">
+
+        <label>2. They ______ (not go) to the gym on Sundays.</label>
+        <input type="text" id="q2" class="form-control">
+
+        <label>3. ______ you (like) pizza?</label>
+        <input type="text" id="q3" class="form-control">
+
+        <label>4. The sun ______ (rise) in the east.</label>
+        <input type="text" id="q4" class="form-control">
+
+        <label>5. He ______ (work) as an engineer.</label>
+        <input type="text" id="q5" class="form-control">
+
+        <button type="button" class="btn btn-primary mt-3" onclick="checkAnswers()">Comprobar respuestas</button>
+      </form>
+
+      <p id="result" class="mt-3"></p>
+    </section>
+
+    <!-- Panel: Ordena las palabras -->
+    <section class="panel">
+      <h2>🧐 Ordena las palabras</h2>
+      <p>Haz clic en las palabras para formar una oración correcta en <span class="highlight">Presente Simple</span>.</p>
+
+      <!-- Oración 1: Afirmativa -->
+      <h5>1️⃣ Afirmativa:</h5>
+      <div class="sentence-box" id="sentence1" data-answer="she plays soccer."></div>
+      <div class="d-flex flex-wrap" id="words1">
+        <span class="word" onclick="addWord(this, 'sentence1')">soccer.</span>
+        <span class="word" onclick="addWord(this, 'sentence1')">she</span>
+        <span class="word" onclick="addWord(this, 'sentence1')">plays</span>
+      </div>
+
+      <!-- Oración 2: Negativa -->
+      <h5 class="mt-4">2️⃣ Negativa:</h5>
+      <div class="sentence-box" id="sentence2" data-answer="they do not like pizza."></div>
+      <div class="d-flex flex-wrap" id="words2">
+        <span class="word" onclick="addWord(this, 'sentence2')">pizza.</span>
+        <span class="word" onclick="addWord(this, 'sentence2')">they</span>
+        <span class="word" onclick="addWord(this, 'sentence2')">do not</span>
+        <span class="word" onclick="addWord(this, 'sentence2')">like</span>
+      </div>
+
+      <button class="btn btn-primary mt-3" onclick="checkSentences()">Comprobar respuestas</button>
+      <p id="resultSentences" class="mt-3"></p>
+    </section>
+
+  </main>
+
+  <footer class="text-center py-4 bg-dark text-white">
+    <p>&copy; 2025 - Andres Carvajal</p>
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      const answers = {
+        q1: "plays",
+        q2: "do not go",
+        q3: "do",
+        q4: "rises",
+        q5: "works"
+      };
+
+      let score = 0;
+      for (let key in answers) {
+        const userInput = document.getElementById(key).value.trim().toLowerCase();
+        if (userInput === answers[key]) score++;
+      }
+
+      document.getElementById('result').innerHTML = `✅ Obtuviste ${score} de 5 respuestas correctas.`;
+    }
+
+    function addWord(element, targetId) {
+      const target = document.getElementById(targetId);
+      target.textContent += element.innerText + " ";
+    }
+
+    function checkSentences() {
+      const sentences = document.querySelectorAll('.sentence-box');
+      sentences.forEach(sentence => {
+        const userAnswer = sentence.innerText.trim().toLowerCase();
+        const correctAnswer = sentence.dataset.answer;
+
+        if (userAnswer === correctAnswer) {
+          sentence.classList.add('correct');
+        } else {
+          sentence.classList.add('incorrect');
+          sentence.textContent = ''; // Limpia el contenido si está mal
+        }
+      });
+    }
+  </script>
+
+</body>
+
+        </html>
